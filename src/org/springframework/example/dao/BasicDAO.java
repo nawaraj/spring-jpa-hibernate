@@ -27,7 +27,7 @@ public class BasicDAO {
         return query.getResultList();
     }
 
-    public List findAllPerson(){
-        return entityManager.createQuery("select p from Person p").getResultList();
+    public List findAllContacts(){
+        return entityManager.createQuery("select c from Contact c").getResultList();
     }
 }

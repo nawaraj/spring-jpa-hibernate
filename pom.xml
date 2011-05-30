@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>spring-mvc-simple</groupId>
-  <artifactId>spring-mvc-simple</artifactId>
-  <name>spring-mvc-simple</name>
+  <groupId>spring-jpa-hibernate</groupId>
+  <artifactId>spring-jpa-hibernate</artifactId>
+  <name>Spring Jpa Hibernate</name>
   <packaging>war</packaging>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
@@ -333,7 +333,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <warName>spring-mvc-simple</warName>
+          <warName>spring-jpa-hibernate</warName>
           <warSourceDirectory>web</warSourceDirectory>
         </configuration>
       </plugin>

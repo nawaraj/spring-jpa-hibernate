@@ -15,8 +15,7 @@ import java.util.List;
  * Time: 2:57:41 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ContactServiceImpl implements ContactService{
-    @Autowired
+public class ContactServiceImpl implements ContactService{    @Autowired
     ContactDao contactDao;
     @Override
     public List<Contact> getAllContacts() {
