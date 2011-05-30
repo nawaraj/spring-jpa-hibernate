@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persons>
+#foreach( $person in $persons )
+  <person>
+    <id>$person.id</id>
+    <firstName>$person.firstName</firstName>
+    <lastName>$person.lastName</lastName>
+    <deleted>$person.deleted</deleted>
+  </person>
+#end
+</persons>

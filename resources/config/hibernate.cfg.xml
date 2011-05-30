@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.default_batch_fetch_size">16</property>
+		<property name="hibernate.max_fetch_depth">5</property>
+
+		<property name="hibernate.cache.use_query_cache">false</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
+		<!--<property name="hibernate.search.default.directory_provider">org.hibernate.search.store.FSDirectoryProvider</property>
+		<property name="hibernate.search.default.indexBase">${taskmind.base}/indexes</property>
+
+		<class-cache class="net.taskmind.entities.PermissionObject" usage="read-write"/>
+		<class-cache class="net.taskmind.entities.Role" usage="read-write"/>
+
+		<collection-cache collection="net.taskmind.projects.Project.roles" usage="read-write"/>
+
+		<collection-cache collection="net.taskmind.projects.ProjectItem.notes" usage="read-write"/>
+		<class-cache class="net.taskmind.projects.Note" usage="read-write"/>
+
+		<collection-cache collection="net.taskmind.projects.Project.children" usage="read-write"/>
+		<collection-cache collection="net.taskmind.projects.Project.projectItems" usage="read-write"/>
+
+		<class-cache class="cc.catalysts.cp.authentication.Principal" usage="read-write"/>
+		<collection-cache collection="net.taskmind.users.UserGroup.children" usage="read-write"/>-->
+	</session-factory>
+</hibernate-configuration>

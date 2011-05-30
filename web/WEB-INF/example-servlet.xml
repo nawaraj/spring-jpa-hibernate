@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    >
+
+  <import resource="mesage-converter-context.xml"/>
+  <!--<context:component-scan base-package="org.springframework.example.web"/>-->
+  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <property name="messageConverters">
+      <list>
+        <ref bean="marshallingConverter"/>
+      </list>
+    </property>
+  </bean>
+  <import resource="dao-context.xml"/>
+  <import resource="service-context.xml"/>
+
+  <!-- <bean id="xmlViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+      <property name="order" value="2"/>
+      <property name="location">
+          <value>/WEB-INF/xml/tpl.xml</value>
+      </property>
+  </bean>-->
+
+ <!-- <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    <property name="mediaTypes">
+      <map>
+        <entry key="xml" value="application/xml"/>
+        <entry key="html" value="text/html"/>
+      </map>
+    </property>
+    <property name="viewResolvers">
+      <list>
+        <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+        <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+          <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+          <property name="prefix" value="/WEB-INF/jsp/"/>
+          <property name="suffix" value=".jsp"/>
+        </bean>
+      </list>
+    </property>
+  </bean>-->
+
+  <!--<bean id="content" class="com.springsource.samples.rest.SampleContentAtomView"/>-->
+
+  <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    <property name="prefix" value="/WEB-INF/jsp/"/>
+    <property name="suffix" value=".jsp"/>
+  </bean>
+
+  <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean"
+        p:resourceLoaderPath="${templateLocation}"/>
+  <bean class="org.springframework.example.web.SiteMapController" p:velocityEngine-ref="velocityEngine"
+        p:basicDAO-ref="basicDAO"/>
+  <bean class="org.springframework.example.web.ExampleController" p:basicDAO-ref="basicDAO"/>
+
+</beans>
